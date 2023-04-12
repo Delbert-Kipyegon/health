@@ -18,12 +18,6 @@ export default function Covid() {
         
     };
 
-
-    
-
-
-
-
   return (
     <div className='  flex flex-col justify-center items-center'>
         <div className="header flex justify-center p-4">
