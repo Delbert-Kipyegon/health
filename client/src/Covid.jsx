@@ -7,21 +7,25 @@ export default function Covid() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const name =  e.target.elements.name.value
+        // const name =  e.target.elements.name.value
         const phone = e.target.elements.phone.value
         e.target.reset();
 
+        // console.log(phone);
         
-        alert(phone)
-       
-    
-        
+        fetch("http://localhost:3001", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(phone),
+          });
     };
 
   return (
     <div className='  flex flex-col justify-center items-center'>
         <div className="header flex justify-center p-4">
-          <h2 className='font-bold text-2xl '> Covid Tests
+          <h2 className='font-bold text-2xl '> 
             </h2>  
         </div>
         <div className="form w-[70%] flex justify-center bg-blue-500 rounded-xl  mx-auto p-20">
