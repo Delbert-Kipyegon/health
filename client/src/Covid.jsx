@@ -7,8 +7,10 @@ export default function Covid() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // const name =  e.target.elements.name.value
+        const name =  e.target.elements.name.value
         const phone = e.target.elements.phone.value
+
+        const formData = {name, phone}; 
         e.target.reset();
 
         // console.log(phone);
@@ -18,8 +20,11 @@ export default function Covid() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(phone),
-          });
+            body: JSON.stringify(formData),
+          })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
     };
 
   return (
