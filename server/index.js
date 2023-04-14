@@ -1,9 +1,9 @@
 // requiring dependencies
-
 const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const bodyParser = require("body-parser");
+
 
 // AT Creds fixed 
 const credentials = {
@@ -29,11 +29,13 @@ app.use(function(req, res, next) {
 // Getting client data
 app.use(bodyParser.json());
 
+function sendAirtime(){
+
+
+
 try {
   app.post("/", (req, res) => {
     const formData = req.body;
-
-    
     const phoneNo = formData.phone
 
 //  console.log(typeof(phoneNo)); // string
@@ -42,12 +44,12 @@ try {
         phoneNumber: phoneNo, // value from frontend
         currencyCode: "KES",
         amount: "5"
-    }]
-
-    
+    }
+  ]
 };
 
-console.log(options.recipients[0].phoneNumber) /// logs 0792961634 as entered in the front end
+console.log(options.recipients) /// logs 0792961634 as entered in the front end 
+// [ { phoneNumber: '0792961634', currencyCode: 'KES', amount: '5' } ]
 
 airtime.send(options)
     .then( response => {
@@ -58,11 +60,15 @@ airtime.send(options)
     });
 
   });
+
 } catch (error) {
   console.log(error)
 }
 
+}
 
+
+sendAirtime()
 
 // Listening on specified PORT
     app.listen(PORT, () => {
