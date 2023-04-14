@@ -30,7 +30,7 @@ export default function Covid() {
   return (
     <div className='  flex flex-col justify-center items-center'>
         <div className="header flex justify-center p-4">
-          <h2 className='font-bold text-2xl '> 
+          <h2 className='font-bold text-2xl '> COVID TESTS 
             </h2>  
         </div>
         <div className="form w-[70%] flex justify-center bg-blue-500 rounded-xl  mx-auto p-20">
