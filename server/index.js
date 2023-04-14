@@ -36,7 +36,8 @@ function sendAirtime(){
 try {
   app.post("/", (req, res) => {
     const formData = req.body;
-    const phoneNo = formData.phone
+    // const phoneNo = formData.phone
+    const phoneNo = "254792961634"
 
 //  console.log(typeof(phoneNo)); // string
   const options = {
@@ -68,7 +69,7 @@ airtime.send(options)
 }
 
 
-sendAirtime()
+sendAirtime();
 
 // Listening on specified PORT
     app.listen(PORT, () => {
