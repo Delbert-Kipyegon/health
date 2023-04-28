@@ -13,9 +13,9 @@ export default function Covid() {
         const formData = {name, phone}; 
         e.target.reset();
 
-        // console.log(phone);
+        console.log(phone);
         
-        fetch("http://localhost:3001", {
+        fetch("http://localhost:3001/", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

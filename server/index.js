@@ -19,7 +19,7 @@ const airtime = AfricasTalking.AIRTIME
 
 //handling CORS
 app.use(function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", true);
@@ -31,15 +31,13 @@ app.use(bodyParser.json());
 
 function sendAirtime(){
 
-
-
 try {
-  app.post("/", (req, res) => {
+  app.post("http://localhost:3000/", (req, res) => {
     const formData = req.body;
-    // const phoneNo = formData.phone
-    const phoneNo = "254792961634"
+    const phoneNo = formData.phone
+    // const phoneNo = "254792961634"
 
-//  console.log(typeof(phoneNo)); // string
+ console.log(phoneNo); // string
   const options = {
     recipients: [{
         phoneNumber: phoneNo, // value from frontend
